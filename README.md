@@ -1,50 +1,19 @@
-# React + TypeScript + Vite
+# API em Java com Spring Boot
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto demonstra um exemplo simples de API de produtos usando Spring Boot.
+Inclui um controller `ProdutoController` com operações básicas de CRUD.
 
-Currently, two official plugins are available:
+Para executar o projeto, é necessário ter Java instalado. O Maven Wrapper está
+incluído para facilitar a construção e execução.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```bash
+./mvnw spring-boot:run
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+Os endpoints disponíveis são:
+- `GET /produto`
+- `POST /produto`
+- `DELETE /produto/{id}`
+- `PUT /produto/{id}`
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+O projeto também possui o actuator habilitado em `/actuator/health`.
